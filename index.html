@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GEO Snapshot — AI Visibility Audit for Your Brand</title>
+  <meta name="description" content="Find out if ChatGPT, Gemini, Perplexity, and Grok mention your brand — or your competitors. GEO Snapshot gives you a monthly AI-visibility score plus concrete fixes." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="GEO Snapshot — AI Visibility Audit" />
+  <meta property="og:description" content="Are you invisible to ChatGPT? Get your AI visibility score and a fix list. Monthly audits across ChatGPT, Gemini, Perplexity, and Grok." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://egiraldmu1795.github.io/geo-snapshot/" />
+  <meta property="og:image" content="https://egiraldmu1795.github.io/geo-snapshot/og.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="GEO Snapshot — AI Visibility Audit" />
+  <meta name="twitter:description" content="Are you invisible to ChatGPT? Get your AI visibility score and a fix list." />
+  <meta name="twitter:image" content="https://egiraldmu1795.github.io/geo-snapshot/og.png" />
+
+  <!-- Tailwind CSS v4 via CDN -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.1/dist/index.global.js"
+    integrity="sha384-H7HZ1mz/og5ZEIoB7pO+p3ri0JloxRfmUC+pRHvWodtLXNFLBh6x3GNtbybc4oRb"
+    crossorigin="anonymous"
+  ></script>
+
+  <!-- Tailwind v4 theme overrides -->
+  <style type="text/tailwindcss">
+    @theme {
+      --color-slate-950: #020617;
+      --color-slate-900: #0b1220;
+      --color-slate-800: #1e293b;
+      --color-slate-700: #334155;
+      --color-slate-600: #475569;
+      --color-slate-400: #94a3b8;
+      --color-slate-300: #cbd5e1;
+      --color-emerald-500: #10b981;
+      --color-emerald-400: #34d399;
+      --color-emerald-300: #6ee7b7;
+      --color-emerald-600: #059669;
+      --color-emerald-700: #047857;
+      --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+
+    @layer base {
+      body {
+        background-color: var(--color-slate-950);
+        color: var(--color-slate-300);
+        font-family: var(--font-sans);
+      }
+      h1, h2, h3, h4 {
+        color: white;
+      }
+    }
+
+    @layer utilities {
+      .text-emerald { color: var(--color-emerald-400); }
+      .bg-emerald-btn {
+        background-color: var(--color-emerald-500);
+      }
+      .bg-emerald-btn:hover {
+        background-color: var(--color-emerald-600);
+      }
+      .score-bar {
+        background: linear-gradient(90deg, var(--color-emerald-500) 0%, var(--color-emerald-400) 100%);
+        border-radius: 4px;
+        height: 14px;
+      }
+    }
+  </style>
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+</head>
+
+<body class="antialiased">
+
+  <!-- ═══════════════════════════════════════════════════
+       NAV
+  ════════════════════════════════════════════════════ -->
+  <nav class="sticky top-0 z-50 border-b border-slate-800 bg-slate-950/90 backdrop-blur">
+    <div class="mx-auto max-w-6xl flex items-center justify-between px-6 py-4">
+      <a href="#" class="flex items-center gap-2 font-bold text-white text-lg tracking-tight">
+        <span class="inline-block w-7 h-7 rounded-md bg-emerald-500 flex items-center justify-center text-slate-950 text-sm font-black">G</span>
+        GEO Snapshot
+      </a>
+      <div class="hidden md:flex items-center gap-6 text-sm text-slate-400">
+        <a href="#how-it-works" class="hover:text-white transition-colors">How it works</a>
+        <a href="#sample-report" class="hover:text-white transition-colors">Sample report</a>
+        <a href="#pricing" class="hover:text-white transition-colors">Pricing</a>
+        <a href="#faq" class="hover:text-white transition-colors">FAQ</a>
+      </div>
+      <!-- TODO: booking/checkout link -->
+      <a
+        href="mailto:egiraldmu@gmail.com?subject=GEO%20Snapshot%20-%20free%20audit"
+        class="hidden md:inline-flex items-center gap-2 rounded-lg bg-emerald-500 hover:bg-emerald-600 transition-colors px-4 py-2 text-sm font-semibold text-slate-950"
+      >
+        Get free audit &rarr;
+      </a>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════════
+       HERO
+  ════════════════════════════════════════════════════ -->
+  <section class="relative overflow-hidden px-6 pt-24 pb-20 text-center">
+    <!-- subtle grid bg -->
+    <div class="pointer-events-none absolute inset-0 opacity-5" style="background-image: linear-gradient(var(--color-emerald-500) 1px, transparent 1px), linear-gradient(90deg, var(--color-emerald-500) 1px, transparent 1px); background-size: 48px 48px;"></div>
+
+    <div class="relative mx-auto max-w-4xl">
+      <span class="inline-block mb-4 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-emerald-400">
+        Generative Engine Optimization · 2026
+      </span>
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-black leading-tight tracking-tight text-white">
+        Are you invisible to
+        <span class="text-emerald-400"> ChatGPT?</span>
+      </h1>
+      <p class="mt-6 text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
+        Buyers now ask AI assistants for product and service recommendations — not Google.
+        If ChatGPT, Gemini, Perplexity, or Grok don't mention your brand, you're losing
+        customers before they ever find your website.
+        <strong class="text-slate-200"> GEO Snapshot shows you exactly where you stand — and how to fix it.</strong>
+      </p>
+      <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <!-- TODO: booking/checkout link -->
+        <a
+          href="mailto:egiraldmu@gmail.com?subject=GEO%20Snapshot%20-%20free%20audit"
+          class="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-500 hover:bg-emerald-600 transition-colors px-8 py-4 text-base font-bold text-slate-950 shadow-lg shadow-emerald-500/20"
+        >
+          Get your free AI visibility audit &rarr;
+        </a>
+        <a
+          href="#how-it-works"
+          class="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl border border-slate-700 hover:border-slate-500 transition-colors px-8 py-4 text-base font-semibold text-slate-300"
+        >
+          See how it works
+        </a>
+      </div>
+      <p class="mt-4 text-xs text-slate-500">No credit card required. First audit is on us.</p>
+
+      <!-- Hero score mockup -->
+      <div class="mt-16 mx-auto max-w-sm rounded-2xl border border-slate-800 bg-slate-900/80 p-6 text-left shadow-xl">
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-xs font-semibold uppercase tracking-wider text-slate-500">AI Visibility Score</span>
+          <span class="text-xs text-slate-600">Your Brand · Jun 2026</span>
+        </div>
+        <div class="flex items-baseline gap-2 mb-3">
+          <span class="text-5xl font-black text-emerald-400">34</span>
+          <span class="text-2xl font-bold text-slate-600">/100</span>
+          <span class="ml-auto text-sm font-semibold text-amber-400 bg-amber-400/10 px-2 py-0.5 rounded">At Risk</span>
+        </div>
+        <div class="w-full rounded bg-slate-800 h-3 mb-4 overflow-hidden">
+          <div class="score-bar" style="width: 34%;"></div>
+        </div>
+        <div class="grid grid-cols-2 gap-2 text-xs">
+          <div class="rounded-lg bg-slate-800 p-3">
+            <div class="text-slate-500 mb-0.5">Mentioned</div>
+            <div class="font-bold text-white">3 / 10 queries</div>
+          </div>
+          <div class="rounded-lg bg-slate-800 p-3">
+            <div class="text-slate-500 mb-0.5">Ranked #1</div>
+            <div class="font-bold text-white">0 times</div>
+          </div>
+          <div class="rounded-lg bg-slate-800 p-3">
+            <div class="text-slate-500 mb-0.5">Competitors winning</div>
+            <div class="font-bold text-amber-400">4 brands</div>
+          </div>
+          <div class="rounded-lg bg-slate-800 p-3">
+            <div class="text-slate-500 mb-0.5">Fix items</div>
+            <div class="font-bold text-emerald-400">7 actions</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       THE PROBLEM
+  ════════════════════════════════════════════════════ -->
+  <section class="px-6 py-20 border-t border-slate-800">
+    <div class="mx-auto max-w-5xl">
+      <div class="text-center mb-14">
+        <span class="text-xs font-semibold uppercase tracking-wider text-emerald-400">The new reality</span>
+        <h2 class="mt-2 text-3xl sm:text-4xl font-bold text-white">AI is the new search engine</h2>
+        <p class="mt-4 text-slate-400 max-w-2xl mx-auto">
+          Your customers have already switched. SEO optimized you for Google — but that channel is shrinking fast.
+          GEO (Generative Engine Optimization) is what comes next.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <!-- Problem card 1 -->
+        <div class="rounded-2xl border border-slate-800 bg-slate-900 p-6">
+          <div class="text-3xl mb-3">🔍</div>
+          <h3 class="font-bold text-white mb-2">Buyers ask AI first</h3>
+          <p class="text-sm text-slate-400">
+            "What's the best project management tool for a 10-person startup?" gets typed into ChatGPT,
+            not Google. The AI's top answer wins the click — and the sale.
+          </p>
+        </div>
+        <!-- Problem card 2 -->
+        <div class="rounded-2xl border border-slate-800 bg-slate-900 p-6">
+          <div class="text-3xl mb-3">👻</div>
+          <h3 class="font-bold text-white mb-2">You can't see your own invisibility</h3>
+          <p class="text-sm text-slate-400">
+            There's no Google Search Console for AI answers. You have no idea whether ChatGPT mentions
+            you, what rank you appear at, or which competitors it recommends instead.
+          </p>
+        </div>
+        <!-- Problem card 3 -->
+        <div class="rounded-2xl border border-slate-800 bg-slate-900 p-6">
+          <div class="text-3xl mb-3">📉</div>
+          <h3 class="font-bold text-white mb-2">Traffic decline without explanation</h3>
+          <p class="text-sm text-slate-400">
+            Organic traffic falls, paid efficiency drops, but nothing looks wrong in your SEO dashboard.
+            The real culprit: AI is intercepting your buyers before they reach your site.
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-10 rounded-2xl border border-emerald-500/20 bg-emerald-500/5 p-6 text-center">
+        <p class="text-slate-300 text-base">
+          GEO is the 2026 equivalent of SEO — and right now there are fewer than 5 tools tracking
+          it at a price point that makes sense for real businesses.
+          <strong class="text-emerald-400"> You're either early, or you're late.</strong>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       HOW IT WORKS
+  ════════════════════════════════════════════════════ -->
+  <section id="how-it-works" class="px-6 py-20 border-t border-slate-800">
+    <div class="mx-auto max-w-5xl">
+      <div class="text-center mb-14">
+        <span class="text-xs font-semibold uppercase tracking-wider text-emerald-400">The process</span>
+        <h2 class="mt-2 text-3xl sm:text-4xl font-bold text-white">How GEO Snapshot works</h2>
+        <p class="mt-4 text-slate-400 max-w-xl mx-auto">
+          We run the same queries your real buyers type — across multiple AI assistants — and measure exactly
+          where your brand lands.
+        </p>
+      </div>
+
+      <div class="relative">
+        <!-- connector line (desktop) -->
+        <div class="hidden md:block absolute top-12 left-[calc(16.66%+16px)] right-[calc(16.66%+16px)] h-0.5 bg-slate-800"></div>
+
+        <div class="grid md:grid-cols-3 gap-8 relative z-10">
+          <!-- Step 1 -->
+          <div class="text-center">
+            <div class="mx-auto w-14 h-14 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 font-black text-xl mb-5">
+              1
+            </div>
+            <h3 class="font-bold text-white mb-2 text-lg">We query the AIs as your buyers do</h3>
+            <p class="text-sm text-slate-400 leading-relaxed">
+              We craft 5–10 buyer-intent prompts specific to your brand and category, then fire them across
+              ChatGPT, Gemini, Perplexity, Grok, and more — just like a real customer would.
+            </p>
+          </div>
+          <!-- Step 2 -->
+          <div class="text-center">
+            <div class="mx-auto w-14 h-14 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 font-black text-xl mb-5">
+              2
+            </div>
+            <h3 class="font-bold text-white mb-2 text-lg">We score your AI visibility</h3>
+            <p class="text-sm text-slate-400 leading-relaxed">
+              Every response is analyzed for brand mentions, ranking position, and sentiment.
+              We track which competitors appear instead — producing a 0–100 visibility score with breakdown.
+            </p>
+          </div>
+          <!-- Step 3 -->
+          <div class="text-center">
+            <div class="mx-auto w-14 h-14 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 font-black text-xl mb-5">
+              3
+            </div>
+            <h3 class="font-bold text-white mb-2 text-lg">You get a report + concrete fixes</h3>
+            <p class="text-sm text-slate-400 leading-relaxed">
+              A structured PDF report lands in your inbox with your score, model-by-model breakdown,
+              competitor map, and a prioritized action list — no guesswork.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- AI models covered -->
+      <div class="mt-14 text-center">
+        <p class="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-4">AI assistants we audit against</p>
+        <div class="flex flex-wrap items-center justify-center gap-3">
+          <span class="rounded-full border border-slate-700 bg-slate-800 px-4 py-1.5 text-sm font-medium text-slate-300">ChatGPT / GPT-4o</span>
+          <span class="rounded-full border border-slate-700 bg-slate-800 px-4 py-1.5 text-sm font-medium text-slate-300">Gemini</span>
+          <span class="rounded-full border border-slate-700 bg-slate-800 px-4 py-1.5 text-sm font-medium text-slate-300">Perplexity</span>
+          <span class="rounded-full border border-slate-700 bg-slate-800 px-4 py-1.5 text-sm font-medium text-slate-300">Grok</span>
+          <span class="rounded-full border border-slate-700 bg-slate-800 px-4 py-1.5 text-sm font-medium text-slate-300">Claude</span>
+          <span class="rounded-full border border-slate-700 bg-slate-800 px-4 py-1.5 text-sm font-medium text-slate-400">+ more over time</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       SAMPLE REPORT
+  ════════════════════════════════════════════════════ -->
+  <section id="sample-report" class="px-6 py-20 border-t border-slate-800 bg-slate-900/40">
+    <div class="mx-auto max-w-5xl">
+      <div class="text-center mb-12">
+        <span class="text-xs font-semibold uppercase tracking-wider text-emerald-400">Real output</span>
+        <h2 class="mt-2 text-3xl sm:text-4xl font-bold text-white">What your report looks like</h2>
+        <p class="mt-4 text-slate-400 max-w-xl mx-auto">
+          Below is an excerpt from a real GEO Snapshot audit — brand: <strong class="text-white">Pawsenger</strong>, category: <em>dog car travel gear</em>.
+        </p>
+      </div>
+
+      <div class="rounded-2xl border border-slate-700 bg-slate-900 overflow-hidden shadow-2xl">
+        <!-- Report header bar -->
+        <div class="flex items-center gap-3 border-b border-slate-800 bg-slate-950 px-6 py-4">
+          <div class="flex gap-1.5">
+            <div class="w-3 h-3 rounded-full bg-red-500/60"></div>
+            <div class="w-3 h-3 rounded-full bg-yellow-500/60"></div>
+            <div class="w-3 h-3 rounded-full bg-green-500/60"></div>
+          </div>
+          <span class="text-xs text-slate-500 font-mono ml-2">GEO Snapshot Report — Pawsenger.pdf</span>
+        </div>
+
+        <div class="p-6 md:p-8 space-y-8">
+          <!-- Score block -->
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-3">AI Visibility Score</p>
+            <div class="flex items-baseline gap-3 mb-3">
+              <span class="text-6xl font-black text-emerald-400">91</span>
+              <span class="text-2xl font-bold text-slate-600">/100</span>
+              <span class="ml-2 text-sm font-bold text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-3 py-1 rounded-full">Strong</span>
+            </div>
+            <div class="w-full rounded bg-slate-800 h-3 mb-5 overflow-hidden">
+              <div class="score-bar" style="width: 91%;"></div>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
+              <div class="rounded-lg bg-slate-800 p-3">
+                <div class="text-slate-500 mb-0.5">Total queries</div>
+                <div class="font-bold text-white">10</div>
+              </div>
+              <div class="rounded-lg bg-slate-800 p-3">
+                <div class="text-slate-500 mb-0.5">Mentioned in</div>
+                <div class="font-bold text-emerald-400">10 / 10 (100%)</div>
+              </div>
+              <div class="rounded-lg bg-slate-800 p-3">
+                <div class="text-slate-500 mb-0.5">Ranked #1</div>
+                <div class="font-bold text-white">5 times</div>
+              </div>
+              <div class="rounded-lg bg-slate-800 p-3">
+                <div class="text-slate-500 mb-0.5">Positive sentiment</div>
+                <div class="font-bold text-emerald-400">100%</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Prompt table -->
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-3">Prompt × Model Results</p>
+            <div class="overflow-x-auto rounded-xl border border-slate-800">
+              <table class="w-full text-xs text-left">
+                <thead>
+                  <tr class="bg-slate-950 border-b border-slate-800">
+                    <th class="px-4 py-3 font-semibold text-slate-400">Prompt</th>
+                    <th class="px-4 py-3 font-semibold text-slate-400">Bulk tier</th>
+                    <th class="px-4 py-3 font-semibold text-slate-400">Reason tier</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-800">
+                  <tr>
+                    <td class="px-4 py-3 text-slate-300 max-w-xs truncate">What are the best dog car travel gear products…</td>
+                    <td class="px-4 py-3 text-emerald-400">✓ #1 😊</td>
+                    <td class="px-4 py-3 text-emerald-400">✓ (unranked) 😊</td>
+                  </tr>
+                  <tr>
+                    <td class="px-4 py-3 text-slate-300 max-w-xs truncate">Who should I buy dog car travel gear from?…</td>
+                    <td class="px-4 py-3 text-emerald-400">✓ #1 😊</td>
+                    <td class="px-4 py-3 text-emerald-400">✓ (unranked) 😊</td>
+                  </tr>
+                  <tr>
+                    <td class="px-4 py-3 text-slate-300 max-w-xs truncate">Compare the top dog car travel gear solutions…</td>
+                    <td class="px-4 py-3 text-emerald-400">✓ #1 😊</td>
+                    <td class="px-4 py-3 text-emerald-400">✓ (unranked) 😊</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Competitors + fixes -->
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-3">Competitors appearing instead</p>
+              <ol class="space-y-2 text-sm">
+                <li class="flex items-center gap-2 text-slate-300"><span class="text-amber-400 font-bold">1.</span> Kurgo</li>
+                <li class="flex items-center gap-2 text-slate-300"><span class="text-amber-400 font-bold">2.</span> Ruffwear</li>
+                <li class="flex items-center gap-2 text-slate-300"><span class="text-amber-400 font-bold">3.</span> PetSafe</li>
+                <li class="flex items-center gap-2 text-slate-300"><span class="text-amber-400 font-bold">4.</span> Sleepypod</li>
+              </ol>
+            </div>
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-3">Fix recommendations</p>
+              <ul class="space-y-2 text-sm text-slate-400">
+                <li class="flex gap-2"><span class="text-emerald-400 mt-0.5 flex-shrink-0">→</span> Build brand entity signals (Wikipedia, Wikidata, Knowledge Panel)</li>
+                <li class="flex gap-2"><span class="text-emerald-400 mt-0.5 flex-shrink-0">→</span> Run monthly to catch regressions from new LLM versions</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p class="mt-4 text-center text-xs text-slate-600">
+        Real audit data. Brand names used for illustrative purposes only.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       PRICING
+  ════════════════════════════════════════════════════ -->
+  <section id="pricing" class="px-6 py-20 border-t border-slate-800">
+    <div class="mx-auto max-w-5xl">
+      <div class="text-center mb-12">
+        <span class="text-xs font-semibold uppercase tracking-wider text-emerald-400">Pricing</span>
+        <h2 class="mt-2 text-3xl sm:text-4xl font-bold text-white">Simple, transparent plans</h2>
+        <p class="mt-4 text-slate-400">
+          Start with a free audit — no credit card. Choose a tier when you're ready for ongoing tracking.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+
+        <!-- Starter -->
+        <div class="rounded-2xl border border-slate-700 bg-slate-900 p-6 flex flex-col">
+          <div class="mb-6">
+            <p class="text-sm font-semibold text-slate-400 mb-1">Starter</p>
+            <div class="flex items-baseline gap-1">
+              <span class="text-4xl font-black text-white">$99</span>
+              <span class="text-slate-500">/mo</span>
+            </div>
+            <p class="mt-2 text-sm text-slate-400">1 brand · Monthly audit</p>
+          </div>
+          <ul class="space-y-3 text-sm text-slate-400 mb-8 flex-1">
+            <li class="flex gap-2"><span class="text-emerald-400">✓</span> Monthly GEO audit report</li>
+            <li class="flex gap-2"><span class="text-emerald-400">✓</span> 0–100 visibility score</li>
+            <li class="flex gap-2"><span class="text-emerald-400">✓</span> Prompt × model breakdown</li>
+            <li class="flex gap-2"><span class="text-emerald-400">✓</span> Top 5 competitor mentions</li>
+            <li class="flex gap-2"><span class="text-emerald-400">✓</span> Prioritized fix list</li>
+          </ul>
+          <!-- TODO: booking/checkout link -->
+          <a
+            href="mailto:egiraldmu@gmail.com?subject=GEO%20Snapshot%20-%20free%20audit"
+            class="block text-center rounded-xl border border-slate-600 hover:border-slate-400 hover:text-white transition-colors px-6 py-3 text-sm font-semibold text-slate-300"
+          >
+            Start free audit
+          </a>
+        </div>
+
+        <!-- Pro -->
+        <div class="rounded-2xl border-2 border-emerald-500 bg-slate-900 p-6 flex flex-col relative">
+          <div class="absolute -top-3.5 left-1/2 -translate-x-1/2">
+            <span class="bg-emerald-500 text-slate-950 text-xs font-bold px-3 py-1 rounded-full">Most popular</span>
+          </div>
+          <div class="mb-6">
+            <p class="text-sm font-semibold text-emerald-400 mb-1">Pro</p>
+            <div class="flex items-baseline gap-1">
+              <span class="text-4xl font-black text-white">$199</span>
+              <span class="text-slate-500">/mo</span>
+            </div>
+            <p class="mt-2 text-sm text-slate-400">1 brand · Weekly audit + competitor tracking</p>
+          </div>
+          <ul class="space-y-3 text-sm text-slate-400 mb-8 flex-1">
+            <li class="flex gap-2"><span class="text-emerald-400">✓</span> Everything in Starter</li>
+            <li class="flex gap-2"><span class="text-emerald-400">✓</span> <strong class="text-white">Weekly</strong> audit cadence</li>
+            <li class="flex gap-2"><span class="text-emerald-400">✓</span> Full competitor tracking dashboard</li>
+            <li class="flex gap-2"><span class="text-emerald-400">✓</span> Trend alerts (score drops)</li>
+            <li class="flex gap-2"><span class="text-emerald-400">✓</span> LLM-judged sentiment analysis</li>
+            <li class="flex gap-2"><span class="text-emerald-400">✓</span> Email support</li>
+          </ul>
+          <!-- TODO: booking/checkout link -->
+          <a
+            href="mailto:egiraldmu@gmail.com?subject=GEO%20Snapshot%20-%20free%20audit"
+            class="block text-center rounded-xl bg-emerald-500 hover:bg-emerald-600 transition-colors px-6 py-3 text-sm font-bold text-slate-950 shadow-lg shadow-emerald-500/25"
+          >
+            Start free audit
+          </a>
+        </div>
+
+        <!-- Agency -->
+        <div class="rounded-2xl border border-slate-700 bg-slate-900 p-6 flex flex-col">
+          <div class="mb-6">
+            <p class="text-sm font-semibold text-slate-400 mb-1">Agency</p>
+            <div class="flex items-baseline gap-1">
+              <span class="text-4xl font-black text-white">$499</span>
+              <span class="text-slate-500">/mo</span>
+            </div>
+            <p class="mt-2 text-sm text-slate-400">Up to 10 brands · White-label PDF reports</p>
+          </div>
+          <ul class="space-y-3 text-sm text-slate-400 mb-8 flex-1">
+            <li class="flex gap-2"><span class="text-emerald-400">✓</span> Everything in Pro</li>
+            <li class="flex gap-2"><span class="text-emerald-400">✓</span> Up to 10 brand portfolios</li>
+            <li class="flex gap-2"><span class="text-emerald-400">✓</span> White-label PDF — your logo</li>
+            <li class="flex gap-2"><span class="text-emerald-400">✓</span> Client-ready report formatting</li>
+            <li class="flex gap-2"><span class="text-emerald-400">✓</span> Resell as a monthly deliverable</li>
+            <li class="flex gap-2"><span class="text-emerald-400">✓</span> Priority support</li>
+          </ul>
+          <!-- TODO: booking/checkout link -->
+          <a
+            href="mailto:egiraldmu@gmail.com?subject=GEO%20Snapshot%20-%20free%20audit"
+            class="block text-center rounded-xl border border-slate-600 hover:border-slate-400 hover:text-white transition-colors px-6 py-3 text-sm font-semibold text-slate-300"
+          >
+            Let's talk
+          </a>
+        </div>
+
+      </div>
+
+      <p class="mt-6 text-center text-sm text-slate-500">
+        All plans start with a free audit. No auto-billing surprises.
+        One-time audit reports also available — <a href="mailto:egiraldmu@gmail.com?subject=GEO%20Snapshot%20-%20one-time%20audit" class="text-emerald-400 hover:text-emerald-300 underline">ask for a quote</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       WHO IT'S FOR
+  ════════════════════════════════════════════════════ -->
+  <section class="px-6 py-20 border-t border-slate-800 bg-slate-900/40">
+    <div class="mx-auto max-w-5xl">
+      <div class="text-center mb-12">
+        <span class="text-xs font-semibold uppercase tracking-wider text-emerald-400">Fit</span>
+        <h2 class="mt-2 text-3xl sm:text-4xl font-bold text-white">Who it's for</h2>
+      </div>
+
+      <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-5">
+        <div class="rounded-xl border border-slate-800 bg-slate-900 p-5">
+          <div class="text-2xl mb-2">🧑‍💼</div>
+          <h3 class="font-bold text-white text-sm mb-1">Marketing managers &amp; CMOs</h3>
+          <p class="text-xs text-slate-400">Tracking why organic traffic is declining and where AI is siphoning buyers away.</p>
+        </div>
+        <div class="rounded-xl border border-slate-800 bg-slate-900 p-5">
+          <div class="text-2xl mb-2">🏢</div>
+          <h3 class="font-bold text-white text-sm mb-1">SEO agencies</h3>
+          <p class="text-xs text-slate-400">Adding GEO as a premium monthly deliverable without building the tooling yourself.</p>
+        </div>
+        <div class="rounded-xl border border-slate-800 bg-slate-900 p-5">
+          <div class="text-2xl mb-2">🛒</div>
+          <h3 class="font-bold text-white text-sm mb-1">E-commerce &amp; SaaS founders</h3>
+          <p class="text-xs text-slate-400">Wanting to know if AI assistants recommend their product in buyer-intent searches.</p>
+        </div>
+        <div class="rounded-xl border border-slate-800 bg-slate-900 p-5">
+          <div class="text-2xl mb-2">📊</div>
+          <h3 class="font-bold text-white text-sm mb-1">Brand consultants</h3>
+          <p class="text-xs text-slate-400">Delivering data-backed AI-visibility audits as a standalone service or upsell.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       CREDIBILITY
+  ════════════════════════════════════════════════════ -->
+  <section class="px-6 py-20 border-t border-slate-800">
+    <div class="mx-auto max-w-3xl text-center">
+      <span class="text-xs font-semibold uppercase tracking-wider text-emerald-400">Who built this</span>
+      <h2 class="mt-2 text-3xl sm:text-4xl font-bold text-white">Built by an operator, not a vendor</h2>
+      <p class="mt-6 text-slate-400 leading-relaxed">
+        GEO Snapshot was built by Esteban Giraldo as part of EAB — a personal multi-LLM automation
+        platform running its own AI crew across ChatGPT, Grok, Gemini, local Ollama models, and custom
+        orchestration layers. The audit system grew out of actually needing to measure whether the
+        businesses inside EAB appear in AI answers.
+      </p>
+      <p class="mt-4 text-slate-400 leading-relaxed">
+        There are no invented testimonials here. No "10x your revenue" promises. What I can tell you
+        honestly: AI assistants are reshaping how buyers discover products, the tooling to track this is
+        thin, and this system queries the actual models your customers use.
+      </p>
+      <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center text-sm text-slate-500">
+        <span class="flex items-center gap-2"><span class="text-emerald-400">✓</span> Real LLM queries, not simulated</span>
+        <span class="flex items-center gap-2"><span class="text-emerald-400">✓</span> Scores based on actual model outputs</span>
+        <span class="flex items-center gap-2"><span class="text-emerald-400">✓</span> No income guarantees</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       FAQ
+  ════════════════════════════════════════════════════ -->
+  <section id="faq" class="px-6 py-20 border-t border-slate-800 bg-slate-900/40">
+    <div class="mx-auto max-w-3xl">
+      <div class="text-center mb-12">
+        <span class="text-xs font-semibold uppercase tracking-wider text-emerald-400">FAQ</span>
+        <h2 class="mt-2 text-3xl sm:text-4xl font-bold text-white">Common questions</h2>
+      </div>
+
+      <div class="space-y-4">
+
+        <details class="group rounded-xl border border-slate-800 bg-slate-900 open:border-emerald-500/30 transition-colors">
+          <summary class="flex cursor-pointer items-center justify-between px-6 py-4 font-semibold text-white list-none">
+            What exactly is in the free first audit?
+            <span class="text-emerald-400 group-open:rotate-180 transition-transform text-lg">↓</span>
+          </summary>
+          <div class="px-6 pb-5 text-sm text-slate-400 leading-relaxed">
+            The free audit covers your brand across 5 buyer-intent prompts queried against at least two AI tiers (bulk + reason). You get a visibility score, which models mentioned you, top competitors, and a short fix list. It's the same format as a paid report — just a one-time snapshot.
+          </div>
+        </details>
+
+        <details class="group rounded-xl border border-slate-800 bg-slate-900 open:border-emerald-500/30 transition-colors">
+          <summary class="flex cursor-pointer items-center justify-between px-6 py-4 font-semibold text-white list-none">
+            Which AI models do you query?
+            <span class="text-emerald-400 group-open:rotate-180 transition-transform text-lg">↓</span>
+          </summary>
+          <div class="px-6 pb-5 text-sm text-slate-400 leading-relaxed">
+            Currently: ChatGPT/GPT-4o, Gemini, Perplexity, Grok, and Claude — queried through a multi-LLM orchestration layer. Coverage expands as new flagship models are released. We document exactly which models ran in every report.
+          </div>
+        </details>
+
+        <details class="group rounded-xl border border-slate-800 bg-slate-900 open:border-emerald-500/30 transition-colors">
+          <summary class="flex cursor-pointer items-center justify-between px-6 py-4 font-semibold text-white list-none">
+            How is the 0–100 score calculated?
+            <span class="text-emerald-400 group-open:rotate-180 transition-transform text-lg">↓</span>
+          </summary>
+          <div class="px-6 pb-5 text-sm text-slate-400 leading-relaxed">
+            The score weights three factors: mention rate (50 pts — how often you appear across all queries), rank quality (30 pts — whether you appear as #1, #2, etc.), and sentiment (20 pts — positive vs. neutral vs. negative language about your brand). Full methodology is in the report.
+          </div>
+        </details>
+
+        <details class="group rounded-xl border border-slate-800 bg-slate-900 open:border-emerald-500/30 transition-colors">
+          <summary class="flex cursor-pointer items-center justify-between px-6 py-4 font-semibold text-white list-none">
+            Why does tracking change over time matter?
+            <span class="text-emerald-400 group-open:rotate-180 transition-transform text-lg">↓</span>
+          </summary>
+          <div class="px-6 pb-5 text-sm text-slate-400 leading-relaxed">
+            LLMs are retrained and updated frequently. A brand that scores 80 today can drop to 40 after a model update — because the new training data favored competitors. The only way to catch this is continuous monitoring, not a one-time snapshot.
+          </div>
+        </details>
+
+        <details class="group rounded-xl border border-slate-800 bg-slate-900 open:border-emerald-500/30 transition-colors">
+          <summary class="flex cursor-pointer items-center justify-between px-6 py-4 font-semibold text-white list-none">
+            Can agencies resell this?
+            <span class="text-emerald-400 group-open:rotate-180 transition-transform text-lg">↓</span>
+          </summary>
+          <div class="px-6 pb-5 text-sm text-slate-400 leading-relaxed">
+            Yes — the Agency tier ($499/mo) includes white-label PDF reports with your logo. You can sell them as a standalone monthly GEO audit service at your own margin. Up to 10 brands per account.
+          </div>
+        </details>
+
+        <details class="group rounded-xl border border-slate-800 bg-slate-900 open:border-emerald-500/30 transition-colors">
+          <summary class="flex cursor-pointer items-center justify-between px-6 py-4 font-semibold text-white list-none">
+            What can I actually do to improve my score?
+            <span class="text-emerald-400 group-open:rotate-180 transition-transform text-lg">↓</span>
+          </summary>
+          <div class="px-6 pb-5 text-sm text-slate-400 leading-relaxed">
+            Each report includes a prioritized action list. Common high-impact fixes: building brand entity signals (Wikipedia, Wikidata, Google Knowledge Panel), generating high-quality topical content that LLMs are likely trained on, getting cited in authoritative roundups, and ensuring your brand name is unambiguous. We tailor recommendations to your specific gap.
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       FINAL CTA
+  ════════════════════════════════════════════════════ -->
+  <section class="px-6 py-24 text-center border-t border-slate-800">
+    <div class="mx-auto max-w-2xl">
+      <h2 class="text-3xl sm:text-4xl font-black text-white leading-tight">
+        Find out if ChatGPT knows <span class="text-emerald-400">your brand exists</span>
+      </h2>
+      <p class="mt-5 text-slate-400 text-lg leading-relaxed">
+        Your first audit is free. Get your AI visibility score and a prioritized fix list — no
+        credit card, no commitment, no fluff.
+      </p>
+      <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+        <!-- TODO: booking/checkout link -->
+        <a
+          href="mailto:egiraldmu@gmail.com?subject=GEO%20Snapshot%20-%20free%20audit"
+          class="inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-500 hover:bg-emerald-600 transition-colors px-10 py-4 text-base font-bold text-slate-950 shadow-xl shadow-emerald-500/20"
+        >
+          Get my free AI visibility audit &rarr;
+        </a>
+      </div>
+      <p class="mt-4 text-xs text-slate-600">
+        Reply to your audit email to upgrade, ask questions, or request custom prompts.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════════════════════ -->
+  <footer class="border-t border-slate-800 bg-slate-950 px-6 py-12">
+    <div class="mx-auto max-w-6xl">
+      <div class="grid sm:grid-cols-3 gap-8 mb-10">
+        <!-- Brand -->
+        <div>
+          <a href="#" class="flex items-center gap-2 font-bold text-white mb-3">
+            <span class="inline-block w-6 h-6 rounded bg-emerald-500 flex items-center justify-center text-slate-950 text-xs font-black">G</span>
+            GEO Snapshot
+          </a>
+          <p class="text-xs text-slate-500 leading-relaxed">
+            AI visibility audits for brands that care where they rank in the answers your buyers actually see.
+          </p>
+        </div>
+
+        <!-- Product links -->
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-3">From EAB</p>
+          <ul class="space-y-2 text-sm">
+            <li>
+              <a
+                href="https://egiraldmu1795.github.io/ai-workflow-pack/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-slate-400 hover:text-emerald-400 transition-colors"
+              >
+                AI Workflow Pack
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://egiraldmu1795.github.io/ai-automation-agency/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-slate-400 hover:text-emerald-400 transition-colors"
+              >
+                AI Automation Agency
+              </a>
+            </li>
+            <li>
+              <a href="#" class="text-slate-400 hover:text-emerald-400 transition-colors">
+                GEO Snapshot (this page)
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-3">Contact</p>
+          <ul class="space-y-2 text-sm">
+            <li>
+              <!-- TODO: booking/checkout link -->
+              <a
+                href="mailto:egiraldmu@gmail.com?subject=GEO%20Snapshot%20-%20free%20audit"
+                class="text-slate-400 hover:text-emerald-400 transition-colors"
+              >
+                Get free audit
+              </a>
+            </li>
+            <li>
+              <a
+                href="mailto:egiraldmu@gmail.com?subject=GEO%20Snapshot%20-%20Agency%20inquiry"
+                class="text-slate-400 hover:text-emerald-400 transition-colors"
+              >
+                Agency / white-label
+              </a>
+            </li>
+            <li>
+              <a
+                href="mailto:egiraldmu@gmail.com?subject=GEO%20Snapshot%20-%20question"
+                class="text-slate-400 hover:text-emerald-400 transition-colors"
+              >
+                Questions
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="border-t border-slate-800 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <p class="text-xs text-slate-600">&copy; 2026 EAB / Esteban Giraldo. All rights reserved.</p>
+        <p class="text-xs text-slate-700">
+          No income guarantees. Results vary by brand, category, and AI model version.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
